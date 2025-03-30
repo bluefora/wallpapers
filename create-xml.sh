@@ -1,5 +1,9 @@
+#!/bin/bash
+
+pack=$1
+
 function single() {
-cat >> /usr/share/gnome-background-properties/extra-backgrounds.xml << EOF
+cat << EOF
  <wallpaper deleted="false">
     <name>Wallpaper</name>
     <filename>$1</filename>
@@ -11,15 +15,19 @@ cat >> /usr/share/gnome-background-properties/extra-backgrounds.xml << EOF
 EOF
 }
 
-cat > /usr/share/gnome-background-properties/extra-backgrounds.xml << EOF
+cat << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
 EOF
 
-for image in /usr/share/backgrounds/extra/*; do
-        single $image
+cd ./rootcopy/usr/share/backgrounds/$pack/
+for image in *.{jpg,png,jpeg}; do
+	if [[ -f $image ]]; then
+		image=`basename $image`
+    	single /usr/share/backgrounds/$pack/$image
+    fi
 done
 
-echo "</wallpapers>" >> /usr/share/gnome-background-properties/extra-backgrounds.xml
+echo "</wallpapers>"
 
