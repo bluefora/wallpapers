@@ -1,5 +1,5 @@
 function single() {
-cat << EOF
+cat >> /usr/share/gnome-background-properties/extra-backgrounds.xml << EOF
  <wallpaper deleted="false">
     <name>Wallpaper</name>
     <filename>/usr/share/backgrounds/extra/$1</filename>
@@ -8,14 +8,14 @@ cat << EOF
     <pcolor>#ffffff</pcolor>
     <scolor>#000000</scolor>
   </wallpaper>
-EOF >> /usr/share/gnome-background-properties/extra-backgrounds.xml
+EOF
 }
 
-cat << EOF
+cat > /usr/share/gnome-background-properties/extra-backgrounds.xml << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
-EOF > /usr/share/gnome-background-properties/extra-backgrounds.xml
+EOF
 
 for image in /usr/share/backgrounds/extra/*; do
         single $image
