@@ -9,4 +9,4 @@ for pack in ./rootcopy/usr/share/backgrounds/*; do
 done
 
 # Temporary copy until we have a 'Pack Manager'
-cp ./rootcopy/usr/share/backgrounds/pack-extra.xml ./rootcopy/usr/share/gnome-background-properties
+cp ./rootcopy/usr/share/backgrounds/pack-extra.xml ./rootcopy/usr/share/gnome-background-properties/extra-backgrounds.xml
