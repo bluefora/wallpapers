@@ -6,7 +6,7 @@ function single() {
 cat << EOF
  <wallpaper deleted="false">
     <name>Wallpaper</name>
-    <filename>$1</filename>
+    <filename>$@</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#ffffff</pcolor>
@@ -23,8 +23,8 @@ EOF
 
 cd ./rootcopy/usr/share/backgrounds/$pack/
 for image in *.{jpg,png,jpeg}; do
-	if [[ -f $image ]]; then
-		image=`basename $image`
+	if [[ -f ${image} ]]; then
+		image="`basename "$image"`"
     	single /usr/share/backgrounds/$pack/$image
     fi
 done
