@@ -2,7 +2,7 @@ function single() {
 cat >> /usr/share/gnome-background-properties/extra-backgrounds.xml << EOF
  <wallpaper deleted="false">
     <name>Wallpaper</name>
-    <filename>/usr/share/backgrounds/extra/$1</filename>
+    <filename>$1</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#ffffff</pcolor>
